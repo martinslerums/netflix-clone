@@ -1,11 +1,38 @@
+import useCureentUser from "@/hooks/useCurrentUser";
+import { NextPageContext } from "next";
+import { getSession, signOut } from "next-auth/react";
 
+export async function getServerSideProps(context: NextPageContext) {
+  const session = await getSession(context);
 
-const Home = ()=> {
- return (
-  <>
-    <h1 className="text-2xl text-green-500">Netflix Clone</h1>
-  </>
- )
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
+
+const Home = () => {
+  const { data: user } = useCureentUser();
+
+
+
+  return (
+    <>
+      <h1 className="text-2xl text-green-500">Netflix Clone</h1>
+      <p className="text-white">Loged in as : {user?.email} </p>
+      <button className="h-10 w-full bg-white" onClick={() => signOut()}>
+        Logout
+      </button>
+    </>
+  );
+};
 
 export default Home;
