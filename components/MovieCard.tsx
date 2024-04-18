@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import { Movie } from "@/lib/typings";
 import { BsFillPlayFill } from "react-icons/bs";
 
 type MovieCardProps = {
-  data: Record<string, any>;
+  data: Movie;
 };
 
 const MovieCard = ({ data: movie }: MovieCardProps) => {
