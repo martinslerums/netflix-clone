@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import useCureentUser from "@/hooks/useCurrentUser";
+import useCurrentUser from "@/hooks/useCurrentUser";
 import { NextPageContext } from "next"
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -23,7 +23,7 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 const Profiles = () => {
   const router = useRouter();
-  const { data: user } = useCureentUser();
+  const { data: user } = useCurrentUser();
 
   return (
     <div className="flex items-center h-full justify-center">

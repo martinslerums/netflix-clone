@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { useCallback, useEffect, useState } from "react"
 import MobileMenu from "./MobileMenu"
 import NavbarItem from "./NavbarItem"
-import { BsChevronDown, BsSearch, BsBell } from "react-icons/bs"
 import AccountMenu from "./AccountMenu"
+import { useCallback, useEffect, useState } from "react"
+import { BsChevronDown, BsSearch, BsBell } from "react-icons/bs"
 
 const TOP_OFFSET = 66;
 
